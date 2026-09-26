@@ -1,4 +1,4 @@
-<!-- ai-generated: 0% - written by the course team -->
+<!-- ai-generated: 30% - Course template with implementation and test instructions added by Codex. -->
 # svcdesk - ITSM 2026/27 course repository
 
 This repository was created from the course template. It holds your `svcdesk` service for the whole semester:
@@ -36,3 +36,11 @@ write your own), and read the course package (`README.md`, `PREWORK.md`, `lab1/`
 The workflow `tier-a` runs on every push and on demand (Actions tab, "Run workflow"). It needs no secrets. The
 job is red when a Core spec fails; the step summary shows which checks, and `report.json` is attached as an
 artifact.
+
+## Implemented Lab 1 service
+
+The service uses Python 3.13, FastAPI and SQLite. Decisions are C1=wallclock, C2=immutable and C3=matrix; see DECISIONS.md for consequences. The accepted pre-implementation specs receipt is https://github.com/swasik/itsm-2026-submissions/issues/174.
+
+Run `docker compose up --build --wait svcdesk` to serve the API on port 8080. Run `docker compose --profile tests run --rm --build tests` for the independent HTTP tests; the last line reports their actual outcomes. Test data persists in the named volume. `docker compose down` stops the application while preserving that data; deleting the volume deletes its tickets.
+
+The test-clock header is enabled in course compose configuration. Set SVCDESK_TEST_CLOCK to 0 to ignore it outside testing. Images install dependencies at build time. Stretch deliverables are specs/converge.md and the tests service; no S2 agent configuration is claimed.
