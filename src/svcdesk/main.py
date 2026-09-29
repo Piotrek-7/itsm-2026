@@ -7,12 +7,13 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from uuid import uuid4
 
-from fastapi import Depends, FastAPI, Request
+from fastapi import Body, Depends, FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from starlette.exceptions import HTTPException
 from .clock import UTC, deadlines, evaluate, parse_instant, stamp
+from .dora import InvalidLog, compute_metrics
 
 DB = os.environ.get("SVCDESK_DB", "/data/svcdesk.db")
 Path(DB).parent.mkdir(parents=True, exist_ok=True)
@@ -147,3 +148,26 @@ def transition(ticket_id: str, action: str, now=Depends(request_clock)):
                 ticket[event] = stamp(now)
         conn.execute("UPDATE tickets SET body = ? WHERE id = ?", (json.dumps(ticket), ticket_id))
     return ticket
+
+
+@app.post("/dora/metrics")
+def dora_metrics(body: object = Body(...)):
+    try:
+        return compute_metrics(body)
+    except InvalidLog as exc:
+        fail(422, "invalid_log", str(exc))
+
+
+@app.get("/dora/ticket-events")
+def ticket_events():
+    events = []
+    with database() as conn:
+        for row in conn.execute("SELECT body FROM tickets"):
+            ticket = json.loads(row[0])
+            for phase in ("created", "acknowledged", "resolved", "closed"):
+                at = ticket.get(phase + "_at")
+                if at is not None:
+                    events.append({"ticket_id": ticket["id"], "at": at, "phase": phase,
+                                   "priority": ticket["priority"],
+                                   "state": "new" if phase == "created" else phase})
+    return sorted(events, key=lambda event: (parse_instant(event["at"]), event["ticket_id"]))

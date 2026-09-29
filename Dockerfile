@@ -12,4 +12,5 @@ FROM application AS tests
 COPY tests/requirements.txt /app/tests/requirements.txt
 RUN pip install --no-cache-dir -r /app/tests/requirements.txt
 COPY tests/ /app/tests/
+COPY fixtures/ /app/fixtures/
 CMD ["python", "/app/tests/run.py"]

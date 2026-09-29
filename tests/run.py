@@ -21,7 +21,7 @@ class Summary:
 
 if __name__ == '__main__':
     summary = Summary()
-    code = pytest.main(['-q', '-p', 'no:cacheprovider', str(Path(__file__).with_name('test_api.py'))], plugins=[summary])
+    code = pytest.main(['-q', '-p', 'no:cacheprovider', str(Path(__file__).parent)], plugins=[summary])
     failures = summary.failed or (1 if code else 0)
     print(f'ITSMLAB-TESTS: passed={summary.passed} failed={failures}', flush=True)
     raise SystemExit(int(code) if code else (0 if summary.passed >= 10 else 1))
