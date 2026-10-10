@@ -1,0 +1,42 @@
+[
+  {
+    "alert": "KbAvailabilityFastBurn",
+    "mutation": "for_plus",
+    "killed": true
+  },
+  {
+    "alert": "KbAvailabilityFastBurn",
+    "mutation": "for_minus",
+    "killed": true
+  },
+  {
+    "alert": "KbAvailabilityFastBurn",
+    "mutation": "threshold_up",
+    "killed": true
+  },
+  {
+    "alert": "KbAvailabilityFastBurn",
+    "mutation": "threshold_down",
+    "killed": true
+  },
+  {
+    "alert": "KbAvailabilitySlowBurn",
+    "mutation": "for_plus",
+    "killed": true
+  },
+  {
+    "alert": "KbAvailabilitySlowBurn",
+    "mutation": "for_minus",
+    "killed": true
+  },
+  {
+    "alert": "KbAvailabilitySlowBurn",
+    "mutation": "threshold_up",
+    "killed": true
+  },
+  {
+    "alert": "KbAvailabilitySlowBurn",
+    "mutation": "threshold_down",
+    "killed": true
+  }
+]

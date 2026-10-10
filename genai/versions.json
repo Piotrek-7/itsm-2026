@@ -1,0 +1,5 @@
+{
+  "openai": "3.19.2",
+  "opentelemetry-sdk": "1.45.0",
+  "opentelemetry-instrumentation-genai-openai": "1.2b0"
+}

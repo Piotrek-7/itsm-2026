@@ -1,0 +1,22 @@
+# ai-generated: 100% - Codex designed multiwindow budget alerts and boundary, quiet, and recovery tests.
+groups:
+- name: svcdesk-slo
+  rules:
+  - alert: KbAvailabilityFastBurn
+    expr: (sum(rate(http_server_request_duration_seconds_count{http_route="/kb/search",http_response_status_code=~"5.."}[60m]))
+      / sum(rate(http_server_request_duration_seconds_count{http_route="/kb/search"}[60m])) > (14.4 * 0.01)) and (sum(rate(http_server_request_duration_seconds_count{http_route="/kb/search",http_response_status_code=~"5.."}[5m]))
+      / sum(rate(http_server_request_duration_seconds_count{http_route="/kb/search"}[5m])) > (14.4 * 0.01))
+    for: 5m
+    labels:
+      service: svcdesk
+      slo: availability
+      severity: P1
+  - alert: KbAvailabilitySlowBurn
+    expr: (sum(rate(http_server_request_duration_seconds_count{http_route="/kb/search",http_response_status_code=~"5.."}[360m]))
+      / sum(rate(http_server_request_duration_seconds_count{http_route="/kb/search"}[360m])) > (6 * 0.01)) and (sum(rate(http_server_request_duration_seconds_count{http_route="/kb/search",http_response_status_code=~"5.."}[30m]))
+      / sum(rate(http_server_request_duration_seconds_count{http_route="/kb/search"}[30m])) > (6 * 0.01))
+    for: 5m
+    labels:
+      service: svcdesk
+      slo: availability
+      severity: P2

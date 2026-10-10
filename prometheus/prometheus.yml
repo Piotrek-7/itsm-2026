@@ -1,0 +1,10 @@
+# ai-generated: 100% - Codex configured local scraping to match the course measurement.
+global:
+  scrape_interval: 5s
+  evaluation_interval: 15s
+rule_files:
+  - alerts.yml
+scrape_configs:
+  - job_name: svcdesk
+    static_configs:
+      - targets: ["svcdesk:8080"]

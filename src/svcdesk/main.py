@@ -1,4 +1,6 @@
 # ai-generated: 100% - Codex implemented the API from the receipted specification.
+import asyncio
+import http.client
 import json
 import os
 import sqlite3
@@ -7,13 +9,17 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from uuid import uuid4
 
-from fastapi import Body, Depends, FastAPI, Request
+from prometheus_client import CONTENT_TYPE_LATEST, generate_latest
+from fastapi import Body, Depends, FastAPI, Query, Request
+from fastapi.responses import Response
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from starlette.exceptions import HTTPException
 from .clock import UTC, deadlines, evaluate, parse_instant, stamp
 from .dora import InvalidLog, compute_metrics
+from .monitoring import REGISTRY, RequestMetrics
+from .kb import fetch_hits
 
 DB = os.environ.get("SVCDESK_DB", "/data/svcdesk.db")
 Path(DB).parent.mkdir(parents=True, exist_ok=True)
@@ -33,6 +39,7 @@ with database() as conn:
     conn.execute("CREATE TABLE IF NOT EXISTS tickets (id TEXT PRIMARY KEY, body TEXT NOT NULL)")
 
 app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
+app.add_middleware(RequestMetrics)
 
 
 class Reporter(BaseModel):
@@ -171,3 +178,17 @@ def ticket_events():
                                    "priority": ticket["priority"],
                                    "state": "new" if phase == "created" else phase})
     return sorted(events, key=lambda event: (parse_instant(event["at"]), event["ticket_id"]))
+
+
+@app.get("/metrics")
+async def metrics():
+    return Response(content=generate_latest(REGISTRY), headers={"Content-Type": CONTENT_TYPE_LATEST})
+
+
+@app.get("/kb/search")
+async def kb_search(q: str = Query(..., min_length=1, max_length=200)):
+    try:
+        hits = await asyncio.to_thread(fetch_hits, q)
+    except (OSError, http.client.HTTPException, ValueError, KeyError):
+        fail(502, "upstream_unavailable", "The knowledge-base index is unavailable")
+    return {"query": q, "hits": hits}

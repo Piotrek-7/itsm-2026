@@ -1,0 +1,50 @@
+{
+  "id": "chatcmpl-LmFiGsUp6WVYuWDJ80R7HMzXn58XQ9mS",
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "message": {
+        "content": "Monitoring latency helps in optimizing network performance by ensuring that data is transmitted quickly and efficiently, which is crucial for smooth user experiences.",
+        "refusal": null,
+        "role": "assistant",
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": null
+      }
+    }
+  ],
+  "created": 1791652334,
+  "model": "smollm2-135m",
+  "object": "chat.completion",
+  "metadata": null,
+  "moderation": null,
+  "service_tier": null,
+  "system_fingerprint": "b11541-f2918cabb",
+  "usage": {
+    "completion_tokens": 26,
+    "prompt_tokens": 42,
+    "total_tokens": 68,
+    "completion_tokens_details": null,
+    "prompt_tokens_details": {
+      "audio_tokens": null,
+      "cache_write_tokens": null,
+      "cached_tokens": 0,
+      "image_tokens": null,
+      "text_tokens": null
+    }
+  },
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 42,
+    "prompt_ms": 369.72,
+    "prompt_per_token_ms": 8.802857142857144,
+    "prompt_per_second": 113.59948068808826,
+    "predicted_n": 26,
+    "predicted_ms": 1450.785,
+    "predicted_per_token_ms": 58.031400000000005,
+    "predicted_per_second": 17.232050234872844
+  }
+}

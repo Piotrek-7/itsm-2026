@@ -1,0 +1,37 @@
+Diagnostic cProfile run, 15 seconds at 40 requests/s. Profiling adds overhead; this is NOT SLO measurement evidence. Original HTTPX keep-alive limit: 64.
+
+Sat Oct 10 17:23:42 2026    /tmp/lab3.prof
+
+         3594968 function calls (3551315 primitive calls) in 17.651 seconds
+
+   Ordered by: internal time
+   List reduced from 4628 to 25 due to restriction <25>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+    17004    0.779    0.000    2.416    0.000 <frozen importlib._bootstrap_external>:1625(find_spec)
+     1589    0.731    0.000    5.523    0.003 connection_pool.py:270(_assign_requests_to_connections)
+     1074    0.668    0.001    0.668    0.001 {built-in method builtins.compile}
+    18394    0.546    0.000    0.546    0.000 {built-in method posix.stat}
+    85411    0.542    0.000    0.902    0.000 <frozen importlib._bootstrap_external>:131(_path_join)
+   222540    0.403    0.000    0.623    0.000 connection.py:192(is_idle)
+    11837    0.380    0.000    1.191    0.000 _sockets.py:143(extra_attributes)
+271672/266265    0.342    0.000    0.439    0.000 {built-in method builtins.isinstance}
+   173624    0.230    0.000    0.230    0.000 {method 'rstrip' of 'str' objects}
+   219398    0.220    0.000    0.220    0.000 http11.py:288(is_idle)
+    11922    0.179    0.000    0.179    0.000 {method 'getpeername' of '_socket.socket' objects}
+      397    0.174    0.000    0.174    0.000 {built-in method marshal.loads}
+    580/1    0.166    0.000   17.667   17.667 {built-in method builtins.exec}
+     3750    0.161    0.000    2.648    0.001 <frozen importlib._bootstrap_external>:1523(_get_spec)
+    88903    0.159    0.000    0.159    0.000 {method 'get' of 'dict' objects}
+92669/92660    0.151    0.000    0.154    0.000 {method 'join' of 'str' objects}
+     3755    0.149    0.000    2.941    0.001 <frozen importlib._bootstrap>:1240(_find_spec)
+    11816    0.143    0.000    0.358    0.000 _utils.py:8(is_socket_readable)
+    35490    0.129    0.000    0.273    0.000 _asyncio.py:1392(_raw_socket)
+    11837    0.129    0.000    1.889    0.000 anyio.py:82(get_extra_info)
+  704/696    0.129    0.000    0.128    0.000 {method 'send' of '_socket.socket' objects}
+3809/3244    0.127    0.000    7.569    0.002 <frozen importlib._bootstrap>:1358(_find_and_load)
+    11837    0.123    0.000    1.403    0.000 _typedattr.py:62(extra)
+     3475    0.121    0.000    8.293    0.002 connection_pool.py:199(handle_async_request)
+ 6942/267    0.119    0.000    0.224    0.001 encoders.py:129(jsonable_encoder)
+
+

@@ -1,0 +1,29 @@
+itsmlab: login piotrek-7 (from the owner in itsmlab.yaml `repository:`)
+itsmlab: probing http://toxiproxy:8666/health (up to 10 s)
+itsmlab: GET /health -> 200 after 0.3 s
+itsmlab: kb-index: GET /healthz on kb-index -> 200 (0.0 s)
+itsmlab: warm-up 5 s, then 60 s open-loop at 40 requests/s (M-08)
+
+login piotrek-7: /kb/search, 60 s open-loop at 40 requests/s (latency-corrected)
+  percentiles   p10 230.3 ms  p25 233.7 ms  p50 238.5 ms  p75 245.2 ms  p90 257.6 ms  p95 330.0 ms  p99 447.0 ms  p99.9 803.2 ms  p99.99 879.5 ms
+  q (p99)       447.0 ms
+  q_kb          162.7 ms  (kb-index measured directly)
+  status codes  {'200': 2384, '502': 4}
+  oha's own latency histogram (upper edge in seconds: count):
+       0.2177  1
+       0.2839  2229
+       0.3501  65
+       0.4162  63
+       0.4824  11
+       0.5486  4
+       0.6148  6
+       0.6809  2
+       0.7471  3
+       0.8133  2
+       0.8795  2
+
+ladders against q:
+  your service's         resolves q: (0.39, 0.45], width 13.4% of q
+  the flawed ladder      does NOT resolve q: (0.04, 0.5], width 102.9% of q
+
+your histogram's own p99 over the run: 212.0 ms (M-12 wants it within 25 % of q)

@@ -1,0 +1,151 @@
+itsmlab: login piotrek-7 (from the owner in itsmlab.yaml `repository:`)
+itsmlab: compose project itsmlab-4d9b3e6e (docker-compose.yml, itsmlab.override.yaml, itsmlab.lab.override.yaml); mode: container
+itsmlab: docker compose --profile tests build (untimed)
+  |  Image itsmlab-4d9b3e6e-tests Building 
+  |  Image itsmlab-4d9b3e6e-svcdesk Building 
+  | #1 [internal] load local bake definitions
+  | #1 reading from stdin 981B done
+  | #1 DONE 0.0s
+  | 
+  | #2 [tests internal] load build definition from Dockerfile
+  | #2 DONE 0.0s
+  | 
+  | #2 [svcdesk internal] load build definition from Dockerfile
+  | #2 transferring dockerfile: 607B 0.0s done
+  | #2 DONE 0.1s
+  | 
+  | #3 [tests internal] load metadata for docker.io/library/python:3.13-slim
+  | #3 DONE 0.1s
+  | 
+  | #4 [tests internal] load .dockerignore
+  | #4 transferring context: 103B done
+  | #4 DONE 0.1s
+  | 
+  | #5 [svcdesk internal] load build context
+  | #5 DONE 0.0s
+  | 
+  | #6 [tests internal] load build context
+  | #6 transferring context: 85.29kB 0.1s done
+  | #6 DONE 0.1s
+  | 
+  | #7 [tests application 1/6] FROM docker.io/library/python:3.13-slim@sha256:70729b46c69b4f1e97c4822c1af3df53a1476cf5ddc6c087c0c10bc3a5678c2f
+  | #7 resolve docker.io/library/python:3.13-slim@sha256:70729b46c69b4f1e97c4822c1af3df53a1476cf5ddc6c087c0c10bc3a5678c2f 0.1s done
+  | #7 DONE 0.1s
+  | 
+  | #5 [svcdesk internal] load build context
+  | #5 transferring context: 23.63kB 0.0s done
+  | #5 DONE 0.1s
+  | 
+  | #8 [tests tests 3/4] COPY tests/ /app/tests/
+  | #8 CACHED
+  | 
+  | #9 [tests application 4/6] RUN pip install --no-cache-dir -r /app/requirements.txt
+  | #9 CACHED
+  | 
+  | #10 [tests tests 1/4] COPY tests/requirements.txt /app/tests/requirements.txt
+  | #10 CACHED
+  | 
+  | #11 [tests application 5/6] COPY src/ /app/src/
+  | #11 CACHED
+  | 
+  | #12 [tests tests 2/4] RUN pip install --no-cache-dir -r /app/tests/requirements.txt
+  | #12 CACHED
+  | 
+  | #13 [tests application 2/6] WORKDIR /app
+  | #13 CACHED
+  | 
+  | #14 [tests application 3/6] COPY requirements.txt /app/requirements.txt
+  | #14 CACHED
+  | 
+  | #15 [tests application 6/6] RUN mkdir -p /data
+  | #15 CACHED
+  | 
+  | #16 [tests tests 4/4] COPY fixtures/ /app/fixtures/
+  | #16 CACHED
+  | 
+  | #15 [tests application 6/6] RUN mkdir -p /data
+  | #15 CACHED
+  | 
+  | #17 [svcdesk] exporting to image
+  | #17 exporting layers 0.0s done
+  | #17 exporting manifest sha256:3b110c324343d0c04dd6135a39185871d9ae01fc015dd70de73a2a3c9b58e4c6 0.0s done
+  | #17 exporting config sha256:dfc2877bbf4c575f611eaf46bf1275aec7b47ed80002efbf0a2c93f894e5e99a 0.0s done
+  | #17 exporting attestation manifest sha256:03a9bd92244af3dbdc9d0b8421c3399d15a8d802b2d3e1cc3bc0cc01f0ad167b
+  | #17 exporting attestation manifest sha256:03a9bd92244af3dbdc9d0b8421c3399d15a8d802b2d3e1cc3bc0cc01f0ad167b 0.1s done
+  | #17 exporting manifest list sha256:ac96da6eb677f51023a02a1cdf623a84f7fd72d9739187faca7645e3077edf85 0.0s done
+  | #17 naming to docker.io/library/itsmlab-4d9b3e6e-svcdesk:latest done
+  | #17 unpacking to docker.io/library/itsmlab-4d9b3e6e-svcdesk:latest 0.0s done
+  | #17 ...
+  | 
+  | #18 [tests] exporting to image
+  | #18 exporting layers 0.0s done
+  | #18 exporting manifest sha256:a4d24b6b8db1003727d51f98bff5efbe2331662ded36317424a0a1cd6bfa4ef1 done
+  | #18 exporting config sha256:a4976211fab6e9f95024fc51664a2c3904a4fec5abf780761296e9900ff85312 done
+  | #18 exporting attestation manifest sha256:208cec5661dd8856b8490e21951e71ec37b5e64388afac0ad510ad9825867a31 0.1s done
+  | #18 exporting manifest list sha256:d3771534a9f7ebad45fc0e8d1d9db016c802fe742f725996a64968f78dd32062 0.0s done
+  | #18 naming to docker.io/library/itsmlab-4d9b3e6e-tests:latest 0.0s done
+  | #18 unpacking to docker.io/library/itsmlab-4d9b3e6e-tests:latest 0.1s done
+  | #18 DONE 0.4s
+  | 
+  | #17 [svcdesk] exporting to image
+  | #17 DONE 0.4s
+  | 
+  | #19 [svcdesk] resolving provenance for metadata file
+  | #19 DONE 0.1s
+  | 
+  | #20 [tests] resolving provenance for metadata file
+  | #20 DONE 0.0s
+  |  Image itsmlab-4d9b3e6e-tests Built 
+  |  Image itsmlab-4d9b3e6e-svcdesk Built 
+itsmlab: docker compose up --wait svcdesk kb-index (must succeed within 120 s)
+  |  Network itsmlab-4d9b3e6e_default Creating 
+  |  Volume itsmlab-4d9b3e6e_svcdesk-data Creating 
+  |  Volume itsmlab-4d9b3e6e_svcdesk-data Creating 
+  |  Network itsmlab-4d9b3e6e_default Creating 
+  |  Volume itsmlab-4d9b3e6e_svcdesk-data Created 
+  |  Volume itsmlab-4d9b3e6e_svcdesk-data Created 
+  |  Network itsmlab-4d9b3e6e_default Created 
+  |  Network itsmlab-4d9b3e6e_default Created 
+  |  Container itsmlab-4d9b3e6e-kb-index-1 Creating 
+  |  Container itsmlab-4d9b3e6e-kb-index-1 Created 
+  |  Container itsmlab-4d9b3e6e-svcdesk-1 Creating 
+  |  Container itsmlab-4d9b3e6e-svcdesk-1 Created 
+  |  Container itsmlab-4d9b3e6e-kb-index-1 Starting 
+  |  Container itsmlab-4d9b3e6e-kb-index-1 Started 
+  |  Container itsmlab-4d9b3e6e-svcdesk-1 Starting 
+  |  Container itsmlab-4d9b3e6e-svcdesk-1 Started 
+  |  Container itsmlab-4d9b3e6e-kb-index-1 Waiting 
+  |  Container itsmlab-4d9b3e6e-svcdesk-1 Waiting 
+  |  Container itsmlab-4d9b3e6e-kb-index-1 Healthy 
+  |  Container itsmlab-4d9b3e6e-svcdesk-1 Healthy 
+itsmlab: up in 8.1 s
+itsmlab: joined network itsmlab-4d9b3e6e_default as 6d8d595a7774
+itsmlab: polling http://svcdesk:8080/health until 120 s after up
+itsmlab: GET /health -> 200 after 0.2 s
+itsmlab: kb-index: GET /healthz on kb-index -> 200 (0.1 s)
+itsmlab: warm-up 5 s, then 60 s open-loop at 40 requests/s (M-08)
+
+login piotrek-7: /kb/search, 60 s open-loop at 40 requests/s (latency-corrected)
+  percentiles   p10 39.7 ms  p25 45.9 ms  p50 62.6 ms  p75 110.5 ms  p90 206.8 ms  p95 314.3 ms  p99 593.8 ms  p99.9 1104.0 ms  p99.99 1421.8 ms
+  q (p99)       593.8 ms
+  q_kb          176.6 ms  (kb-index measured directly)
+  status codes  {'200': 2390, '502': 3}
+  oha's own latency histogram (upper edge in seconds: count):
+       0.0253  1
+       0.1649  2019
+       0.3046  243
+       0.4443  78
+       0.5839  26
+       0.7236  15
+       0.8632  5
+       1.0029  2
+       1.1425  2
+       1.2822  1
+       1.4218  1
+
+ladders against q:
+  your service's         does NOT resolve q: (0.5, 0.75], width 42.1% of q
+  the flawed ladder      does NOT resolve q: (0.5, 2.5], width 336.8% of q
+
+your histogram's own p99 over the run: 553.3 ms (M-12 wants it within 25 % of q)
+itsmlab: --keep: project itsmlab-4d9b3e6e left running; tear down with `docker compose -p itsmlab-4d9b3e6e down -v --remove-orphans`

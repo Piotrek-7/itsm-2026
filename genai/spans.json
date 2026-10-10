@@ -1,0 +1,46 @@
+[
+  {
+    "name": "chat smollm2-135m",
+    "context": {
+      "trace_id": "0x556fdefd32e7a99cdefd67ba14d179eb",
+      "span_id": "0x72259e1cf031a22c",
+      "trace_state": "[]"
+    },
+    "kind": "SpanKind.CLIENT",
+    "parent_id": null,
+    "start_time": "2026-10-10T17:12:12.491068Z",
+    "end_time": "2026-10-10T17:12:14.385533Z",
+    "status": {
+      "status_code": "UNSET"
+    },
+    "attributes": {
+      "gen_ai.operation.name": "chat",
+      "gen_ai.request.model": "smollm2-135m",
+      "gen_ai.provider.name": "openai",
+      "server.address": "lab3-local-model",
+      "server.port": 8080,
+      "gen_ai.request.temperature": 0.0,
+      "gen_ai.request.max_tokens": 40,
+      "gen_ai.response.finish_reasons": [
+        "stop"
+      ],
+      "gen_ai.response.model": "smollm2-135m",
+      "gen_ai.response.id": "chatcmpl-LmFiGsUp6WVYuWDJ80R7HMzXn58XQ9mS",
+      "gen_ai.usage.input_tokens": 42,
+      "gen_ai.usage.output_tokens": 26,
+      "openai.response.system_fingerprint": "b11541-f2918cabb"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+      "attributes": {
+        "telemetry.sdk.language": "python",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.45.0",
+        "service.instance.id": "ff8cc00e-02cb-4406-91a9-c39ec476baa5",
+        "service.name": "svcdesk-genai-experiment"
+      },
+      "schema_url": ""
+    }
+  }
+]
