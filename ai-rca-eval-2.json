@@ -1,0 +1,40 @@
+{
+  "investigator": {
+    "agent": "Codex interactive investigation",
+    "model": "GPT-6",
+    "mcp_server": "prom_mcp.py (mcp 2.2.0)",
+    "transcript": "ai-rca/second/transcript.md"
+  },
+  "hypotheses": [
+    {
+      "id": "C1",
+      "hypothesis": "Product-catalog is a likely source of the checkout failures: its server error rate rises above the healthy baseline while its p99 remains near nine milliseconds, favoring productCatalogFailure over a catalog latency stall.",
+      "component": "product-catalog",
+      "predicts": "sum(rate(traces_span_metrics_calls_total{service_name=\"product-catalog\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) > 0.05 and on() histogram_quantile(0.99,sum by(le)(rate(traces_span_metrics_duration_milliseconds_bucket{service_name=\"product-catalog\",span_kind=\"SPAN_KIND_SERVER\"}[5m]))) < 100",
+      "at": "2026-10-12T07:09:00Z",
+      "result": true,
+      "verdict": "correct",
+      "evidence": "The error symptom appears only during the fault; catalog latency stays low, discriminating failure from lock contention. Raw result: [{\"metric\": {}, \"value\": [1791788940, \"0.10364119444444443\"]}]. Baseline at 2026-10-12T07:00:45Z: []."
+    },
+    {
+      "id": "C2",
+      "hypothesis": "Ad latency is a separate contributor to slow frontend responses: its server p99 rises from about five milliseconds to about nine hundred milliseconds without an ad-error signal, favoring adManualGc.",
+      "component": "ad",
+      "predicts": "histogram_quantile(0.99,sum by(le)(rate(traces_span_metrics_duration_milliseconds_bucket{service_name=\"ad\",span_kind=\"SPAN_KIND_SERVER\"}[5m]))) > 500 unless on() sum(rate(traces_span_metrics_calls_total{service_name=\"ad\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) > 0",
+      "at": "2026-10-12T07:09:00Z",
+      "result": true,
+      "verdict": "correct",
+      "evidence": "Ad p99 is 912 ms at this instant, versus 5.04 ms on the baseline. Shipping and catalog latency remain low; no ad error rate supports adFailure. Raw result: [{\"metric\": {}, \"value\": [1791788940, \"912\"]}]. Baseline at 2026-10-12T07:00:45Z: []."
+    },
+    {
+      "id": "C3",
+      "hypothesis": "Frontend server errors rise with the catalog failure, so the incident affects user-facing responses rather than only internal checkout telemetry.",
+      "component": "frontend",
+      "predicts": "sum(rate(traces_span_metrics_calls_total{service_name=\"frontend\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) > 0.1",
+      "at": "2026-10-12T07:09:00Z",
+      "result": true,
+      "verdict": "correct",
+      "evidence": "Frontend errors are 0.211973/s at this instant; none on the healthy baseline. Do not add frontend errors to catalog errors to count unique affected users. Raw result: [{\"metric\": {}, \"value\": [1791788940, \"0.2119734547396432\"]}]. Baseline at 2026-10-12T07:00:45Z: []."
+    }
+  ]
+}

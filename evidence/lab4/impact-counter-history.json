@@ -1,0 +1,489 @@
+{
+  "error_totals": {
+    "expr": "sum by(service_name)(traces_span_metrics_calls_total{span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"})",
+    "at": {
+      "2026-10-12T07:00:45Z": [],
+      "2026-10-12T07:05:45Z": [
+        {
+          "metric": {
+            "service_name": "flagd"
+          },
+          "value": [
+            1791788745,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "frontend-proxy"
+          },
+          "value": [
+            1791788745,
+            "1"
+          ]
+        }
+      ],
+      "2026-10-12T07:09:00Z": [
+        {
+          "metric": {
+            "service_name": "product-catalog"
+          },
+          "value": [
+            1791788940,
+            "23"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "checkout"
+          },
+          "value": [
+            1791788940,
+            "2"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "flagd"
+          },
+          "value": [
+            1791788940,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "frontend"
+          },
+          "value": [
+            1791788940,
+            "46"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "frontend-proxy"
+          },
+          "value": [
+            1791788940,
+            "24"
+          ]
+        }
+      ],
+      "2026-10-12T07:12:19Z": [
+        {
+          "metric": {
+            "service_name": "product-catalog"
+          },
+          "value": [
+            1791789139,
+            "38"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "checkout"
+          },
+          "value": [
+            1791789139,
+            "2"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "flagd"
+          },
+          "value": [
+            1791789139,
+            "1"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "frontend"
+          },
+          "value": [
+            1791789139,
+            "76"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "frontend-proxy"
+          },
+          "value": [
+            1791789139,
+            "39"
+          ]
+        }
+      ],
+      "2026-10-12T07:15:00Z": [
+        {
+          "metric": {
+            "service_name": "product-catalog"
+          },
+          "value": [
+            1791789300,
+            "38"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "checkout"
+          },
+          "value": [
+            1791789300,
+            "2"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "flagd"
+          },
+          "value": [
+            1791789300,
+            "4"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "frontend"
+          },
+          "value": [
+            1791789300,
+            "76"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "frontend-proxy"
+          },
+          "value": [
+            1791789300,
+            "39"
+          ]
+        }
+      ]
+    }
+  },
+  "calls": {
+    "expr": "sum by(service_name)(traces_span_metrics_calls_total{span_kind=\"SPAN_KIND_SERVER\",service_name=~\"frontend|checkout|product-catalog|ad|payment\"})",
+    "at": {
+      "2026-10-12T07:00:45Z": [
+        {
+          "metric": {
+            "service_name": "payment"
+          },
+          "value": [
+            1791788445,
+            "45"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "product-catalog"
+          },
+          "value": [
+            1791788445,
+            "821"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "ad"
+          },
+          "value": [
+            1791788445,
+            "75"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "checkout"
+          },
+          "value": [
+            1791788445,
+            "45"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "frontend"
+          },
+          "value": [
+            1791788445,
+            "1677"
+          ]
+        }
+      ],
+      "2026-10-12T07:05:45Z": [
+        {
+          "metric": {
+            "service_name": "payment"
+          },
+          "value": [
+            1791788745,
+            "75"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "product-catalog"
+          },
+          "value": [
+            1791788745,
+            "1435"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "ad"
+          },
+          "value": [
+            1791788745,
+            "141"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "checkout"
+          },
+          "value": [
+            1791788745,
+            "75"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "frontend"
+          },
+          "value": [
+            1791788745,
+            "2870"
+          ]
+        }
+      ],
+      "2026-10-12T07:09:00Z": [
+        {
+          "metric": {
+            "service_name": "payment"
+          },
+          "value": [
+            1791788940,
+            "93"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "product-catalog"
+          },
+          "value": [
+            1791788940,
+            "1769"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "ad"
+          },
+          "value": [
+            1791788940,
+            "176"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "checkout"
+          },
+          "value": [
+            1791788940,
+            "95"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "frontend"
+          },
+          "value": [
+            1791788940,
+            "3552"
+          ]
+        }
+      ],
+      "2026-10-12T07:12:19Z": [
+        {
+          "metric": {
+            "service_name": "payment"
+          },
+          "value": [
+            1791789139,
+            "118"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "product-catalog"
+          },
+          "value": [
+            1791789139,
+            "2218"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "ad"
+          },
+          "value": [
+            1791789139,
+            "218"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "checkout"
+          },
+          "value": [
+            1791789139,
+            "121"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "frontend"
+          },
+          "value": [
+            1791789139,
+            "4458"
+          ]
+        }
+      ],
+      "2026-10-12T07:15:00Z": [
+        {
+          "metric": {
+            "service_name": "payment"
+          },
+          "value": [
+            1791789300,
+            "132"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "product-catalog"
+          },
+          "value": [
+            1791789300,
+            "2489"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "ad"
+          },
+          "value": [
+            1791789300,
+            "242"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "checkout"
+          },
+          "value": [
+            1791789300,
+            "134"
+          ]
+        },
+        {
+          "metric": {
+            "service_name": "frontend"
+          },
+          "value": [
+            1791789300,
+            "4938"
+          ]
+        }
+      ]
+    }
+  },
+  "catalog_failure": {
+    "expr": "sum(rate(traces_span_metrics_calls_total{service_name=\"product-catalog\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) > 0.05",
+    "at": {
+      "2026-10-12T07:00:45Z": [],
+      "2026-10-12T07:05:45Z": [],
+      "2026-10-12T07:09:00Z": [
+        {
+          "metric": {},
+          "value": [
+            1791788940,
+            "0.10364119444444443"
+          ]
+        }
+      ],
+      "2026-10-12T07:12:19Z": [
+        {
+          "metric": {},
+          "value": [
+            1791789139,
+            "0.06250026041775174"
+          ]
+        }
+      ],
+      "2026-10-12T07:15:00Z": []
+    }
+  },
+  "checkout_new_errors": {
+    "expr": "sum(rate(traces_span_metrics_calls_total{service_name=\"checkout\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) > 0",
+    "at": {
+      "2026-10-12T07:00:45Z": [],
+      "2026-10-12T07:05:45Z": [],
+      "2026-10-12T07:09:00Z": [
+        {
+          "metric": {},
+          "value": [
+            1791788940,
+            "0.011357810703154947"
+          ]
+        }
+      ],
+      "2026-10-12T07:12:19Z": [],
+      "2026-10-12T07:15:00Z": []
+    }
+  },
+  "payment_errors": {
+    "expr": "(sum(rate(traces_span_metrics_calls_total{service_name=\"payment\",span_kind=\"SPAN_KIND_SERVER\"}[5m])) - sum(rate(traces_span_metrics_calls_total{service_name=\"payment\",span_kind=\"SPAN_KIND_SERVER\",status_code!=\"STATUS_CODE_ERROR\"}[5m]))) > 0",
+    "at": {
+      "2026-10-12T07:00:45Z": [],
+      "2026-10-12T07:05:45Z": [],
+      "2026-10-12T07:09:00Z": [],
+      "2026-10-12T07:12:19Z": [],
+      "2026-10-12T07:15:00Z": []
+    }
+  },
+  "checkout_growth": {
+    "expr": "min_over_time((sum(rate(traces_span_metrics_calls_total{service_name=\"checkout\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])))[10m:60s]) > 0",
+    "at": {
+      "2026-10-12T07:00:45Z": [],
+      "2026-10-12T07:05:45Z": [],
+      "2026-10-12T07:09:00Z": [
+        {
+          "metric": {},
+          "value": [
+            1791788940,
+            "0.011357810703154947"
+          ]
+        }
+      ],
+      "2026-10-12T07:12:19Z": [
+        {
+          "metric": {},
+          "value": [
+            1791789139,
+            "0.0078395"
+          ]
+        }
+      ],
+      "2026-10-12T07:15:00Z": []
+    }
+  }
+}

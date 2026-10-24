@@ -1,0 +1,63 @@
+# ai-generated: 100% - Codex designed symptom alerts, severity routing and inhibition boundary cases.
+routes:
+- labels:
+    alertname: CheckoutErrorRate
+    service: checkout
+    severity: P1
+    system: shop
+  receivers:
+  - pager
+- labels:
+    alertname: CheckoutHighLatency
+    service: checkout
+    severity: P1
+    system: shop
+  receivers:
+  - pager
+- labels:
+    alertname: AdvertisingHighLatency
+    service: ad
+    severity: P2
+    system: shop
+  receivers:
+  - chat
+- labels:
+    alertname: CheckoutLatencyWarning
+    service: checkout
+    severity: P3
+    system: shop
+  receivers:
+  - chat
+- labels:
+    alertname: KbAvailabilityFastBurn
+    service: svcdesk
+    slo: availability
+    severity: P1
+  receivers:
+  - pager
+- labels:
+    alertname: KbAvailabilitySlowBurn
+    service: svcdesk
+    slo: availability
+    severity: P2
+  receivers:
+  - chat
+inhibitions:
+- source: &id001
+    alertname: CheckoutErrorRate
+    service: checkout
+    severity: P1
+    system: shop
+  target:
+    alertname: AdvertisingHighLatency
+    service: ad
+    severity: P2
+    system: shop
+  inhibited: true
+- source: *id001
+  target:
+    alertname: AdvertisingHighLatency
+    service: ad
+    severity: P2
+    system: other
+  inhibited: false

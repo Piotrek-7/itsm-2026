@@ -1,0 +1,21 @@
+{
+  "recording": "lab4-rec-3",
+  "login": "piotrek-7",
+  "files": [
+    {
+      "file": "incident/tsdb-snapshot.tar.gz",
+      "sha256": "6dd2c5aab7322a7c93d9b3c1251edccaa0176fbf4e0cf62b323e2f541b23e147",
+      "matches_course_original": true
+    },
+    {
+      "file": "incident/ticket.json",
+      "sha256": "7726de83b41c6f24c3d9575b83c000c5106895ed1e2500b6c60bb91b7465caba",
+      "matches_course_original": true
+    },
+    {
+      "file": "ai-rca/transcript.md",
+      "sha256": "61c14d957e29420cb7c69d3faacbf2b4cb75a80711788353707235326d2aff0c",
+      "matches_course_original": true
+    }
+  ]
+}

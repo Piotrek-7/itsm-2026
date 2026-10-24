@@ -1,0 +1,47 @@
+{
+  "checkout": {
+    "expr": "sum(rate(traces_span_metrics_calls_total{service_name=\"checkout\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) / sum(rate(traces_span_metrics_calls_total{service_name=\"checkout\",span_kind=\"SPAN_KIND_SERVER\"}[5m]))",
+    "at": "2026-10-12T07:09:00Z",
+    "result": [
+      {
+        "metric": {},
+        "value": [
+          1791788940,
+          "0.09831518793022422"
+        ]
+      }
+    ],
+    "baseline_at": "2026-10-12T07:00:45Z",
+    "baseline_result": []
+  },
+  "product-catalog": {
+    "expr": "sum(rate(traces_span_metrics_calls_total{service_name=\"product-catalog\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) / sum(rate(traces_span_metrics_calls_total{service_name=\"product-catalog\",span_kind=\"SPAN_KIND_SERVER\"}[5m]))",
+    "at": "2026-10-12T07:09:00Z",
+    "result": [
+      {
+        "metric": {},
+        "value": [
+          1791788940,
+          "0.05456308727956238"
+        ]
+      }
+    ],
+    "baseline_at": "2026-10-12T07:00:45Z",
+    "baseline_result": []
+  },
+  "frontend": {
+    "expr": "sum(rate(traces_span_metrics_calls_total{service_name=\"frontend\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) / sum(rate(traces_span_metrics_calls_total{service_name=\"frontend\",span_kind=\"SPAN_KIND_SERVER\"}[5m]))",
+    "at": "2026-10-12T07:09:00Z",
+    "result": [
+      {
+        "metric": {},
+        "value": [
+          1791788940,
+          "0.05585146776692334"
+        ]
+      }
+    ],
+    "baseline_at": "2026-10-12T07:00:45Z",
+    "baseline_result": []
+  }
+}

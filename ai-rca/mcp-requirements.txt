@@ -1,0 +1,2 @@
+# Course MCP version; the interactive capture client does not call the OpenAI SDK.
+mcp==2.2.0

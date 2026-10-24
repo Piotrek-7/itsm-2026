@@ -1,0 +1,98 @@
+[
+  {
+    "id": "H1",
+    "expr": "sum(rate(traces_span_metrics_calls_total{service_name=\"checkout\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) > 0 unless on() (sum(max_over_time(traces_span_metrics_calls_total{service_name=\"checkout\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) == sum(min_over_time(traces_span_metrics_calls_total{service_name=\"checkout\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])))",
+    "at": "2026-10-12T07:09:00Z",
+    "result": [
+      {
+        "metric": {},
+        "value": [
+          1791788940,
+          "0.011357810703154947"
+        ]
+      }
+    ],
+    "baseline_at": "2026-10-12T07:00:45Z",
+    "baseline_result": []
+  },
+  {
+    "id": "H2",
+    "expr": "sum(rate(traces_span_metrics_calls_total{service_name=\"product-catalog\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) > 0.05",
+    "at": "2026-10-12T07:09:00Z",
+    "result": [
+      {
+        "metric": {},
+        "value": [
+          1791788940,
+          "0.10364119444444443"
+        ]
+      }
+    ],
+    "baseline_at": "2026-10-12T07:00:45Z",
+    "baseline_result": []
+  },
+  {
+    "id": "H3",
+    "expr": "(sum(rate(traces_span_metrics_calls_total{service_name=\"payment\",span_kind=\"SPAN_KIND_SERVER\"}[5m])) - sum(rate(traces_span_metrics_calls_total{service_name=\"payment\",span_kind=\"SPAN_KIND_SERVER\",status_code!=\"STATUS_CODE_ERROR\"}[5m]))) > 0",
+    "at": "2026-10-12T07:09:00Z",
+    "result": [],
+    "baseline_at": "2026-10-12T07:00:45Z",
+    "baseline_result": []
+  },
+  {
+    "id": "H4",
+    "expr": "sum(changes(traces_span_metrics_calls_total{service_name=\"checkout\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) > 1",
+    "at": "2026-10-12T07:11:00Z",
+    "result": [],
+    "baseline_at": "2026-10-12T07:00:45Z",
+    "baseline_result": []
+  },
+  {
+    "id": "C1",
+    "expr": "sum(rate(traces_span_metrics_calls_total{service_name=\"product-catalog\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) > 0.05 and on() histogram_quantile(0.99,sum by(le)(rate(traces_span_metrics_duration_milliseconds_bucket{service_name=\"product-catalog\",span_kind=\"SPAN_KIND_SERVER\"}[5m]))) < 100",
+    "at": "2026-10-12T07:09:00Z",
+    "result": [
+      {
+        "metric": {},
+        "value": [
+          1791788940,
+          "0.10364119444444443"
+        ]
+      }
+    ],
+    "baseline_at": "2026-10-12T07:00:45Z",
+    "baseline_result": []
+  },
+  {
+    "id": "C2",
+    "expr": "histogram_quantile(0.99,sum by(le)(rate(traces_span_metrics_duration_milliseconds_bucket{service_name=\"ad\",span_kind=\"SPAN_KIND_SERVER\"}[5m]))) > 500 unless on() sum(rate(traces_span_metrics_calls_total{service_name=\"ad\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) > 0",
+    "at": "2026-10-12T07:09:00Z",
+    "result": [
+      {
+        "metric": {},
+        "value": [
+          1791788940,
+          "912"
+        ]
+      }
+    ],
+    "baseline_at": "2026-10-12T07:00:45Z",
+    "baseline_result": []
+  },
+  {
+    "id": "C3",
+    "expr": "sum(rate(traces_span_metrics_calls_total{service_name=\"frontend\",span_kind=\"SPAN_KIND_SERVER\",status_code=\"STATUS_CODE_ERROR\"}[5m])) > 0.1",
+    "at": "2026-10-12T07:09:00Z",
+    "result": [
+      {
+        "metric": {},
+        "value": [
+          1791788940,
+          "0.2119734547396432"
+        ]
+      }
+    ],
+    "baseline_at": "2026-10-12T07:00:45Z",
+    "baseline_result": []
+  }
+]

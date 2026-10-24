@@ -1,0 +1,44 @@
+# ai-generated: 100% - Codex designed symptom alerts, severity routing and inhibition boundary cases.
+groups:
+- name: shop-symptoms
+  rules:
+  - alert: CheckoutErrorRate
+    expr: sum(rate(traces_span_metrics_calls_total{service_name="checkout",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_ERROR"}[5m]))
+      / sum(rate(traces_span_metrics_calls_total{service_name="checkout",span_kind="SPAN_KIND_SERVER"}[5m])) > 0.05
+    for: 1m
+    labels:
+      service: checkout
+      severity: P1
+      system: shop
+    annotations:
+      summary: More than 5% of checkout server requests fail over five minutes
+  - alert: CheckoutHighLatency
+    expr: histogram_quantile(0.99, sum by (le) (rate(traces_span_metrics_duration_milliseconds_bucket{service_name="checkout",span_kind="SPAN_KIND_SERVER"}[5m])))
+      > 2000
+    for: 1m
+    labels:
+      service: checkout
+      severity: P1
+      system: shop
+    annotations:
+      summary: Checkout server p99 exceeds two seconds
+  - alert: AdvertisingHighLatency
+    expr: histogram_quantile(0.99, sum by (le) (rate(traces_span_metrics_duration_milliseconds_bucket{service_name="ad",span_kind="SPAN_KIND_SERVER"}[5m])))
+      > 500
+    for: 2m
+    labels:
+      service: ad
+      severity: P2
+      system: shop
+    annotations:
+      summary: Ad server p99 exceeds 500 ms; investigate frontend delay
+  - alert: CheckoutLatencyWarning
+    expr: histogram_quantile(0.99, sum by (le) (rate(traces_span_metrics_duration_milliseconds_bucket{service_name="checkout",span_kind="SPAN_KIND_SERVER"}[5m])))
+      > 1000
+    for: 5m
+    labels:
+      service: checkout
+      severity: P3
+      system: shop
+    annotations:
+      summary: Sustained checkout p99 above one second
