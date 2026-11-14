@@ -41,6 +41,8 @@ jobs:
         run: |
           docker compose build svcdesk tests
           docker compose --profile tests run --rm tests
+          python3 -S -E -m unittest discover -s bakeoff_tests -v
+          docker compose --profile tests run --rm --no-deps -v "$PWD/mutation:/mutation:ro" -w /mutation tests python -m pytest -p no:cacheprovider -q
 
   deps:
     runs-on: ubuntu-latest

@@ -1,0 +1,54 @@
+{
+  "set": "lab5-practice",
+  "defects": 9,
+  "tools": {
+    "ai-reviewer": {
+      "tp": 6,
+      "fp": 3,
+      "fn": 3,
+      "precision": 0.6667,
+      "recall": 0.6667,
+      "f1": 0.6667
+    },
+    "gitleaks": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 7,
+      "precision": 1.0,
+      "recall": 0.2222,
+      "f1": 0.3636
+    },
+    "grype": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 7,
+      "precision": 1.0,
+      "recall": 0.2222,
+      "f1": 0.3636
+    },
+    "osv-scanner": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 7,
+      "precision": 1.0,
+      "recall": 0.2222,
+      "f1": 0.3636
+    },
+    "semgrep": {
+      "tp": 5,
+      "fp": 2,
+      "fn": 4,
+      "precision": 0.7143,
+      "recall": 0.5556,
+      "f1": 0.625
+    },
+    "trivy": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 6,
+      "precision": 1.0,
+      "recall": 0.3333,
+      "f1": 0.5
+    }
+  }
+}

@@ -5,17 +5,23 @@ WORKDIR /app
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 COPY src/ /app/src/
-RUN mkdir -p /data
+RUN useradd --system --uid 10001 --home-dir /nonexistent --shell /usr/sbin/nologin svcdesk \
+    && mkdir -p /data && chown 10001:10001 /data
 ENV SVCDESK_DB=/data/svcdesk.db
 EXPOSE 8080
+USER 10001:10001
 CMD ["uvicorn", "svcdesk.main:app", "--app-dir", "/app/src", "--host", "0.0.0.0", "--port", "8080", "--no-access-log"]
 
 FROM common AS tests
+USER root
 COPY tests/requirements.txt /app/tests/requirements.txt
 RUN pip install --no-cache-dir -r /app/tests/requirements.txt
 COPY tests/ /app/tests/
 COPY fixtures/ /app/fixtures/
+USER 10001:10001
 CMD ["python", "/app/tests/run.py"]
 
 FROM common AS application
+USER root
 RUN pip uninstall -y pip
+USER 10001:10001

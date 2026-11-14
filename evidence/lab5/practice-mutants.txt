@@ -1,0 +1,19 @@
+running your mutation/ suite on the course module, the 2 practice rewrites and the 12 practice mutants (60 s each at most) ...
+tests    test_slaclock.py
+VARIANT    KIND      STATUS   EXIT  SECONDS
+original   module    pass        0      3.7
+R1         rewrite   pass        0      4.3
+R2         rewrite   pass        0      4.5
+P01        mutant    killed      1      1.6
+P02        mutant    killed      1      1.7
+P03        mutant    killed      1      1.5
+P04        mutant    killed      1      1.4
+P05        mutant    killed      1      2.0
+P06        mutant    killed      1      2.1
+P07        mutant    killed      1      2.1
+P08        mutant    killed      1      3.0
+P09        mutant    killed      1      3.0
+P10        mutant    killed      1      5.5
+P11        mutant    killed      1      5.1
+P12        mutant    killed      1      5.1
+killed   12 of 12 practice mutants (at least 9; a timeout or a collection error is not a kill)
