@@ -1,0 +1,37 @@
+{
+  "canary_commit": "aa61b5ba553220d76f5a596c55c7c4ce7b34d8d6",
+  "canary_parent": "ec7b80471293e9ad9dd988973c16318779fd484b",
+  "workflow_run": 43613308513,
+  "files": [
+    {
+      "file": "bakeoff/sarif/ai-reviewer.sarif",
+      "sha256": "fed8202d8d3222480f671dac11e014633e96d71d85af497d4bbfa7c2e62aacbf",
+      "bytes": 9505
+    },
+    {
+      "file": "bakeoff/sarif/gitleaks.sarif",
+      "sha256": "5ae042d281a30cb5282590d525b639f027819a678498491062c3bc8ac10d0605",
+      "bytes": 51099
+    },
+    {
+      "file": "bakeoff/sarif/grype.sarif",
+      "sha256": "19fb8291b9830db57c21439f85e44800d8680c30e0e088716cff3124e9999337",
+      "bytes": 32062
+    },
+    {
+      "file": "bakeoff/sarif/osv-scanner.sarif",
+      "sha256": "1fbd7a83296f2500897cb448a98580368c94fdcba78287bb2c7133871d5c10fb",
+      "bytes": 203694
+    },
+    {
+      "file": "bakeoff/sarif/semgrep.sarif",
+      "sha256": "573e57fb258db786ab1a97aba6b67ebb2255fd958026b0df1e17f4c818854b45",
+      "bytes": 2118110
+    },
+    {
+      "file": "bakeoff/sarif/trivy.sarif",
+      "sha256": "a94ec3f8ed70ab572fb58e397e10eb11509db9ec35a47eaa02b324d11806caee",
+      "bytes": 71456
+    }
+  ]
+}

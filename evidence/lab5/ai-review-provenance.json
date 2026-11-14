@@ -1,0 +1,14 @@
+{
+  "reviewer": "Codex",
+  "model": "GPT-6",
+  "source_commit": "aa61b5ba553220d76f5a596c55c7c4ce7b34d8d6",
+  "source_parent": "ec7b80471293e9ad9dd988973c16318779fd484b",
+  "protocol": "Local interactive review using the course PROMPT.md and numbered source files, before labels were revealed. The raw JSON answer is bakeoff/transcript.md. No canary code was executed.",
+  "prompt_sha256": "4aeef0300931d05b045d84de81ab388d0989174956d39523483d8f8ce03e4f9a",
+  "transcript_sha256": "d3cf71d95e175c47547085c6afd95ad949af4ddf0e0a5471456677c5d2033d6f",
+  "not_reported": [
+    "ticket_counts.py: the SQL substitution casts team_id to int before formatting.",
+    "token_fixtures.py: the JWT is a published parser-test example, not an operational credential."
+  ],
+  "review_limits": "The dependency-pin messages are based on known legacy-version risks and the supplied source, without a network advisory lookup during the review. Scanner disagreement and line-based matching remain part of the measured result."
+}

@@ -1,0 +1,100 @@
+{
+  "image": "ghcr.io/piotrek-7/itsm-2026@sha256:a2ef1c2e22c838b470607688d9ea845c3d12444cedd7adf5af3827783b1ee74b",
+  "verification_command_exit_code": 0,
+  "verificationResults": [
+    {
+      "mediaType": "application/vnd.dev.sigstore.verificationresult+json;version=0.1",
+      "signature": {
+        "certificate": {
+          "certificateIssuer": "CN=sigstore-intermediate,O=sigstore.dev",
+          "subjectAlternativeName": "https://github.com/Piotrek-7/itsm-2026/.github/workflows/ci.yml@refs/heads/main",
+          "issuer": "https://token.actions.githubusercontent.com",
+          "githubWorkflowTrigger": "push",
+          "githubWorkflowSHA": "ec7b80471293e9ad9dd988973c16318779fd484b",
+          "githubWorkflowName": "ci",
+          "githubWorkflowRepository": "Piotrek-7/itsm-2026",
+          "githubWorkflowRef": "refs/heads/main",
+          "buildSignerURI": "https://github.com/Piotrek-7/itsm-2026/.github/workflows/ci.yml@refs/heads/main",
+          "buildSignerDigest": "ec7b80471293e9ad9dd988973c16318779fd484b",
+          "runnerEnvironment": "github-hosted",
+          "sourceRepositoryURI": "https://github.com/Piotrek-7/itsm-2026",
+          "sourceRepositoryDigest": "ec7b80471293e9ad9dd988973c16318779fd484b",
+          "sourceRepositoryRef": "refs/heads/main",
+          "sourceRepositoryIdentifier": "1385025115",
+          "sourceRepositoryOwnerURI": "https://github.com/Piotrek-7",
+          "sourceRepositoryOwnerIdentifier": "182672415",
+          "buildConfigURI": "https://github.com/Piotrek-7/itsm-2026/.github/workflows/ci.yml@refs/heads/main",
+          "buildConfigDigest": "ec7b80471293e9ad9dd988973c16318779fd484b",
+          "buildTrigger": "push",
+          "runInvocationURI": "https://github.com/Piotrek-7/itsm-2026/actions/runs/43613030762/attempts/1",
+          "sourceRepositoryVisibilityAtSigning": "public"
+        }
+      },
+      "verifiedTimestamps": [
+        {
+          "type": "Tlog",
+          "uri": "https://rekor.sigstore.dev",
+          "timestamp": "2026-11-14T15:59:15Z"
+        }
+      ],
+      "verifiedIdentity": {
+        "subjectAlternativeName": {
+          "subjectAlternativeName": "",
+          "regexp": "^https://github\\.com/Piotrek-7/itsm-2026/\\.github/workflows/ci\\.yml(@(refs/.*|[0-9a-fA-F]+))?$"
+        },
+        "issuer": {
+          "issuer": "",
+          "regexp": ".*"
+        }
+      },
+      "statement": {
+        "_type": "https://in-toto.io/Statement/v1",
+        "subject": [
+          {
+            "name": "ghcr.io/piotrek-7/itsm-2026",
+            "digest": {
+              "sha256": "a2ef1c2e22c838b470607688d9ea845c3d12444cedd7adf5af3827783b1ee74b"
+            }
+          }
+        ],
+        "predicateType": "https://slsa.dev/provenance/v1",
+        "predicate": {
+          "buildDefinition": {
+            "buildType": "https://actions.github.io/buildtypes/workflow/v1",
+            "externalParameters": {
+              "workflow": {
+                "path": ".github/workflows/ci.yml",
+                "ref": "refs/heads/main",
+                "repository": "https://github.com/Piotrek-7/itsm-2026"
+              }
+            },
+            "internalParameters": {
+              "github": {
+                "event_name": "push",
+                "repository_id": "1385025115",
+                "repository_owner_id": "182672415",
+                "runner_environment": "github-hosted"
+              }
+            },
+            "resolvedDependencies": [
+              {
+                "digest": {
+                  "gitCommit": "ec7b80471293e9ad9dd988973c16318779fd484b"
+                },
+                "uri": "git+https://github.com/Piotrek-7/itsm-2026@refs/heads/main"
+              }
+            ]
+          },
+          "runDetails": {
+            "builder": {
+              "id": "https://github.com/Piotrek-7/itsm-2026/.github/workflows/ci.yml@refs/heads/main"
+            },
+            "metadata": {
+              "invocationId": "https://github.com/Piotrek-7/itsm-2026/actions/runs/43613030762/attempts/1"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
