@@ -61,7 +61,7 @@ class MatchingRules(unittest.TestCase):
     def test_class_priority_first_rule_and_cwe_boundaries(self):
         r=finding();r['properties']={'tags':['XCWE-89','CWE 89']}
         self.assertEqual(self.count([r])['semgrep']['tp'],0)
-        r['properties']['tags']=['external/cwe/cwe-000089','CWE-502']
+        r['properties']['tags']=['KCWE-000089','CWE-502']
         self.assertEqual(self.count([r])['semgrep']['tp'],1)
         rules=[{'id':'r','properties':{'tags':['CWE-327']}},{'id':'r','properties':{'tags':['CWE-89']}}]
         r['properties']={}

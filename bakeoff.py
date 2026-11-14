@@ -61,7 +61,7 @@ def result_classes(result, driver, tool):
             return matched
     numbers = set()
     for tag in tags(result) + tags(rule):
-        for number in re.findall(r'(?<![A-Za-z0-9])CWE-([0-9]+)', tag, re.IGNORECASE):
+        for number in re.findall(r'(?<![A-Za-z0-9])CWE-([0-9]+)', tag, re.IGNORECASE | re.ASCII):
             try:
                 numbers.add(int(number))
             except ValueError:
