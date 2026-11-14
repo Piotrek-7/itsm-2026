@@ -4,32 +4,6 @@
   "verificationResults": [
     {
       "mediaType": "application/vnd.dev.sigstore.verificationresult+json;version=0.1",
-      "signature": {
-        "certificate": {
-          "certificateIssuer": "CN=sigstore-intermediate,O=sigstore.dev",
-          "subjectAlternativeName": "https://github.com/Piotrek-7/itsm-2026/.github/workflows/ci.yml@refs/heads/main",
-          "issuer": "https://token.actions.githubusercontent.com",
-          "githubWorkflowTrigger": "push",
-          "githubWorkflowSHA": "ec7b80471293e9ad9dd988973c16318779fd484b",
-          "githubWorkflowName": "ci",
-          "githubWorkflowRepository": "Piotrek-7/itsm-2026",
-          "githubWorkflowRef": "refs/heads/main",
-          "buildSignerURI": "https://github.com/Piotrek-7/itsm-2026/.github/workflows/ci.yml@refs/heads/main",
-          "buildSignerDigest": "ec7b80471293e9ad9dd988973c16318779fd484b",
-          "runnerEnvironment": "github-hosted",
-          "sourceRepositoryURI": "https://github.com/Piotrek-7/itsm-2026",
-          "sourceRepositoryDigest": "ec7b80471293e9ad9dd988973c16318779fd484b",
-          "sourceRepositoryRef": "refs/heads/main",
-          "sourceRepositoryIdentifier": "1385025115",
-          "sourceRepositoryOwnerURI": "https://github.com/Piotrek-7",
-          "sourceRepositoryOwnerIdentifier": "182672415",
-          "buildConfigURI": "https://github.com/Piotrek-7/itsm-2026/.github/workflows/ci.yml@refs/heads/main",
-          "buildConfigDigest": "ec7b80471293e9ad9dd988973c16318779fd484b",
-          "buildTrigger": "push",
-          "runInvocationURI": "https://github.com/Piotrek-7/itsm-2026/actions/runs/43613030762/attempts/1",
-          "sourceRepositoryVisibilityAtSigning": "public"
-        }
-      },
       "verifiedTimestamps": [
         {
           "type": "Tlog",
@@ -57,44 +31,10 @@
             }
           }
         ],
-        "predicateType": "https://slsa.dev/provenance/v1",
-        "predicate": {
-          "buildDefinition": {
-            "buildType": "https://actions.github.io/buildtypes/workflow/v1",
-            "externalParameters": {
-              "workflow": {
-                "path": ".github/workflows/ci.yml",
-                "ref": "refs/heads/main",
-                "repository": "https://github.com/Piotrek-7/itsm-2026"
-              }
-            },
-            "internalParameters": {
-              "github": {
-                "event_name": "push",
-                "repository_id": "1385025115",
-                "repository_owner_id": "182672415",
-                "runner_environment": "github-hosted"
-              }
-            },
-            "resolvedDependencies": [
-              {
-                "digest": {
-                  "gitCommit": "ec7b80471293e9ad9dd988973c16318779fd484b"
-                },
-                "uri": "git+https://github.com/Piotrek-7/itsm-2026@refs/heads/main"
-              }
-            ]
-          },
-          "runDetails": {
-            "builder": {
-              "id": "https://github.com/Piotrek-7/itsm-2026/.github/workflows/ci.yml@refs/heads/main"
-            },
-            "metadata": {
-              "invocationId": "https://github.com/Piotrek-7/itsm-2026/actions/runs/43613030762/attempts/1"
-            }
-          }
-        }
-      }
+        "predicateType": "https://slsa.dev/provenance/v1"
+      },
+      "predicate_note": "Full signed predicate remains available in the public GHCR/GitHub attestation; this evidence file retains its type and subjects without duplicating the SBOM package inventory."
     }
-  ]
+  ],
+  "format_note": "Summary of a successful gh attestation verify invocation; the complete signed attestation is served by GHCR and GitHub."
 }

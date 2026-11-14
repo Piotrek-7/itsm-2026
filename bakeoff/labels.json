@@ -1,0 +1,75 @@
+{
+  "set": "lab5-canary",
+  "defects": [
+    {
+      "id": "A04",
+      "file": "lab5-canary/app/avatar_fetch.py",
+      "class": "insecure-transport",
+      "cwe": "CWE-295",
+      "start_line": 7,
+      "end_line": 7
+    },
+    {
+      "id": "A09",
+      "file": "lab5-canary/app/rules_loader.py",
+      "class": "deserialization",
+      "cwe": "CWE-502",
+      "start_line": 7,
+      "end_line": 7
+    },
+    {
+      "id": "A12",
+      "file": "lab5-canary/app/ticket_access.py",
+      "class": "access-control",
+      "cwe": "CWE-639",
+      "start_line": 12,
+      "end_line": 17
+    },
+    {
+      "id": "A16",
+      "file": "lab5-canary/app/webhook_relay.py",
+      "class": "ssrf",
+      "cwe": "CWE-918",
+      "start_line": 7,
+      "end_line": 7
+    },
+    {
+      "id": "C02",
+      "file": "lab5-canary/config/cmdb_token.py",
+      "class": "secret",
+      "cwe": "CWE-798",
+      "start_line": 3,
+      "end_line": 3
+    },
+    {
+      "id": "C03",
+      "file": "lab5-canary/config/github.py",
+      "class": "secret",
+      "cwe": "CWE-798",
+      "start_line": 3,
+      "end_line": 3
+    },
+    {
+      "id": "C05",
+      "file": "lab5-canary/config/mailer.py",
+      "class": "secret",
+      "cwe": "CWE-798",
+      "start_line": 4,
+      "end_line": 4
+    },
+    {
+      "id": "D02",
+      "file": "lab5-canary/requirements.txt",
+      "class": "vulnerable-dependency",
+      "cwe": "CWE-1395",
+      "package": "fastapi"
+    },
+    {
+      "id": "D08",
+      "file": "lab5-canary/requirements.txt",
+      "class": "vulnerable-dependency",
+      "cwe": "CWE-1395",
+      "package": "urllib3"
+    }
+  ]
+}
